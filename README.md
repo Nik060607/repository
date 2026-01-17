@@ -28,4 +28,7 @@ Visual Studio Code используется как удобная среда д�
 
 Через команду git push весь проект загружается на сервер GitHub, делая его доступным другим разработчикам для просмотра, скачивания и сотрудничества.
 
-markdown | Header1 | Header2 | | ------- | ------- | | cell1 | cell2 | | cell3 | cell4 | 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
