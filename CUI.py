@@ -1,41 +1,35 @@
-from tkinter import *
-from tkinter.ttk import Style
+import tkinter as tk
+from tkinter import ttk
 
-class App(Tk):
-    def __init__(self):
-        super().__init__()
-        
-        # Новый стиль
-        s = Style()
-        s.theme_use('clam')
-        
-        # Заголовок окна
-        self.title("Форма регистрации")
-        
-        # Рамка для формы
-        frm = Frame(self)
-        frm.pack(expand=True, fill=BOTH)
-        
-        # Метка для поля Имя
-        lbl_name = Label(frm, text="Имя:", anchor=E)
-        lbl_name.grid(row=0, column=0, sticky=EW)
-        
-        # Поле ввода имени
-        entry_name = Entry(frm)
-        entry_name.grid(row=0, column=1, sticky=EW)
-        
-        # Метка для поля Возраст
-        lbl_age = Label(frm, text="Возраст:", anchor=E)
-        lbl_age.grid(row=1, column=0, sticky=EW)
-        
-        # Поле ввода возраста
-        entry_age = Spinbox(frm, from_=0, to=100)
-        entry_age.grid(row=1, column=1, sticky=EW)
-        
-        # Кнопка отправки формы
-        submit_btn = Button(frm, text="Отправить", bg="#00ff00", fg="white")
-        submit_btn.grid(row=2, columnspan=2, sticky=EW)
+# Инициализация окна
+win = tk.Tk()
+win.title("Пример красной кнопки")
+win.geometry("200x100")
 
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+# Центрирование содержимого
+frame = ttk.Frame(win, padding="10")
+frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+# Текст над кнопкой
+label = ttk.Label(frame, text="Нажмите красную кнопку!")
+label.pack(pady=10)
+
+# Логика кнопки
+def on_button_click():
+    print("Красная кнопка нажата!")
+
+# Красная кнопка
+red_button = ttk.Button(
+    frame,
+    text="Красный!",
+    style="Red.TButton",
+    command=on_button_click
+)
+red_button.pack(pady=10)
+
+# Настройка красного стиля кнопки
+style = ttk.Style()
+style.configure("Red.TButton", background="red", foreground="white", font=("Arial", 14))
+
+# Запускаем основное окно
+win.mainloop()
