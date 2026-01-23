@@ -42,10 +42,15 @@ Visual Studio Code используется как удобная среда д�
 
 Каждый пользователь, желающий создать совместимый проект Arduino-Python в Visual Studio Code и поделиться результатом через GitHub, последовательно выполняет перечисленные шаги. Это гарантирует комфортную разработку, эффективное взаимодействие между платформами и возможность дальнейшей совместной работы над проектами с сообществом разработчиков.
 
-<img width="1051" height="315" alt="image" src="https://github.com/user-attachments/assets/581aa4e8-6e0e-43b3-ba27-71d8f7391301" /> Рисунок 1. Результат Файла GUI.py
+<img width="352" height="244" alt="image" src="https://github.com/user-attachments/assets/b48e3f14-e602-492f-b4c8-564da67a26e6" /> <img width="180" height="52" alt="image" src="https://github.com/user-attachments/assets/22533fd4-5c16-4761-88a6-0383b7801594" />
 
-<img width="207" height="107" alt="image" src="https://github.com/user-attachments/assets/c085efb1-47fc-450f-89e7-30d93b1563c8" />
-Рисунок 2. Результат Файла CUI.py
+Результаты Файла GUI.py
+
+<img width="198" height="126" alt="image" src="https://github.com/user-attachments/assets/d4dfa9d6-ead3-44fb-809a-669c54d0bb8b" /> <img width="210" height="25" alt="image" src="https://github.com/user-attachments/assets/944dd658-7846-42c2-acc7-91e3c03b70be" />
+
+
+ Результаты Файла CUI.py
+
 
 
 
