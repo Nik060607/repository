@@ -1,44 +1,76 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
-# Основная программа
-window = tk.Tk()
-window.title("Выбор плат Arduino")
+# Инициализация окна
+win = tk.Tk()
+win.title("Контроль светодиодов")
+win.resizable(True, True)  # разрешаем изменение размеров окна
 
-# Темы
+# Настраиваем стили
 style = ttk.Style()
-style.theme_use('clam')
+style.theme_use('clam')  # современный стиль
 
-# Виджет Label
-label = ttk.Label(window, text="Ваш выбор:")
-label.pack(pady=10)
+# Центральная рамка для элементов
+frame = ttk.Frame(win, padding="10")
+frame.grid(row=0, column=0, sticky=(tk.N, tk.S, tk.E, tk.W))
 
-# Progress bar
-progress = ttk.Progressbar(window, orient="horizontal", length=200, mode="indeterminate")
-progress.pack(pady=10)
-progress.start()
+# Настройка растяжимости окна
+win.columnconfigure(0, weight=1)
+win.rowconfigure(0, weight=1)
 
-# Combobox
-combo_var = tk.StringVar()
-combobox = ttk.Combobox(window, values=["Arduino Uno", "Arduino NanoATMega328"], state="readonly", textvariable=combo_var)
-combobox.pack(pady=10)
+# Поля ввода и шкала яркости
+LED_time_entry = ttk.Entry(frame, width=10)
+LED_time_entry.grid(column=1, row=1, sticky=tk.W)
 
-# Реакция на выбор
-def on_select(event):
-    selected_value = combo_var.get()
-    label.config(text=f"Ваш выбор: {selected_value}")
+ttk.Label(frame, text="Время включения (сек.)").grid(column=2, row=1, sticky=tk.W)
 
-combobox.bind("<<ComboboxSelected>>", on_select)
+LED_brightness_slider = ttk.Scale(frame, from_=0, to=100, orient=tk.HORIZONTAL)
+LED_brightness_slider.set(50)  # начальное значение
+LED_brightness_slider.grid(column=1, row=2, columnspan=2, sticky=(tk.W, tk.E))
 
-# Проверочный элемент (Checkbutton)
-check_var = tk.BooleanVar(value=False)
-checkbox = ttk.Checkbutton(window, text="Активировать", variable=check_var)
-checkbox.pack(pady=10)
+ttk.Label(frame, text="Яркость LED:").grid(column=1, row=3, sticky=tk.W)
 
-# Иконка на кнопке
-btn_icon = tk.PhotoImage(file="Arduino.png").subsample(5, 5)
-button = ttk.Button(window, text="Подтвердить", image=btn_icon, compound=tk.LEFT)
-button.pack(pady=35)
+# Функциональные кнопки
+def led_on():
+    brightness = LED_brightness_slider.get()
+    delay = int(LED_time_entry.get())
+    print(f"LED включен на {delay} секунд с яркостью {brightness}%")
 
-# Запуск основной петли
-window.mainloop()
+def led_off():
+    print("LED выключен")
+
+def blue_led():
+    print("Blue LED активирован")
+
+def red_led():
+    print("Red LED активирован")
+
+def about_message():
+    messagebox.showinfo("О программе", "Программное обеспечение для управления LED\nВерсия 1.0\nЯнварь 2026")
+
+# Кнопки управления
+blue_btn = ttk.Button(frame, text="Blue LED", command=blue_led)
+blue_btn.grid(column=1, row=4, sticky=tk.W)
+
+red_btn = ttk.Button(frame, text="Red LED", command=red_led)
+red_btn.grid(column=2, row=4, sticky=tk.W)
+
+about_btn = ttk.Button(frame, text="Справка", command=about_message)
+about_btn.grid(column=1, row=5, sticky=tk.W)
+
+quit_btn = ttk.Button(frame, text="Закрыть", command=win.destroy)
+quit_btn.grid(column=2, row=5, sticky=tk.W)
+
+# Дополнительные кнопки управления
+on_btn = ttk.Button(frame, text="LED ВКЛ", command=led_on)
+on_btn.grid(column=3, row=1, sticky=tk.W)
+
+off_btn = ttk.Button(frame, text="LED ВЫКЛ", command=led_off)
+off_btn.grid(column=3, row=2, sticky=tk.W)
+
+# Отступы и выравнивания
+for child in frame.winfo_children():
+    child.grid_configure(padx=5, pady=5)
+
+# Запускаем основное окно
+win.mainloop()
