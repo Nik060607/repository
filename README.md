@@ -51,7 +51,12 @@ Visual Studio Code используется как удобная среда д�
 
  Результаты Файла CUI.py
 
+<img width="391" height="349" alt="image" src="https://github.com/user-attachments/assets/6157a285-0a24-453c-bcdf-f126f7920d71" />
 
+Результаты Файла GUI update.py
 
+<img width="400" height="535" alt="image" src="https://github.com/user-attachments/assets/20c04235-37ca-4c00-b362-0f2ecfb62cc5" />
+
+Результаты Файла CUI update.py
 
 
