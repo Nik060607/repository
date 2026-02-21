@@ -1,0 +1,58 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QTabWidget, QLineEdit
+
+class MonitoringApp(QWidget):
+    def __init__(self):
+        super().__init__()
+        
+        # Настройка окна
+        self.setWindowTitle("Мониторинг температуры и влажности")
+        self.resize(800, 600)
+        
+        layout = QVBoxLayout()
+        
+        # Создание вкладок
+        tabs = QTabWidget()
+        main_tab = QWidget()
+        settings_tab = QWidget()
+        
+        tabs.addTab(main_tab, "Главная")
+        tabs.addTab(settings_tab, "Настройки")
+        
+        # Основная информация на первой вкладке
+        temp_label = QLabel("Температура:")
+        temp_value = QLabel("22°C")  # Будет обновляться динамически
+        humid_label = QLabel("Влажность:")
+        humid_value = QLabel("55%")  # Будет обновляться динамически
+        
+        vbox_main = QVBoxLayout()
+        vbox_main.addWidget(temp_label)
+        vbox_main.addWidget(temp_value)
+        vbox_main.addWidget(humid_label)
+        vbox_main.addWidget(humid_value)
+        main_tab.setLayout(vbox_main)
+        
+        # Поля ввода настроек на второй вкладке
+        ip_entry = QLineEdit("IP адрес устройства")
+        port_entry = QLineEdit("Порт")
+        connect_button = QPushButton("Подключиться")
+        connect_button.clicked.connect(self.connect_to_device)
+        
+        vbox_settings = QVBoxLayout()
+        vbox_settings.addWidget(ip_entry)
+        vbox_settings.addWidget(port_entry)
+        vbox_settings.addWidget(connect_button)
+        settings_tab.setLayout(vbox_settings)
+        
+        layout.addWidget(tabs)
+        self.setLayout(layout)
+    
+    def connect_to_device(self):
+        print("Подключение...")
+        pass  # Логика соединения здесь
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = MonitoringApp()
+    window.show()
+    sys.exit(app.exec_())
