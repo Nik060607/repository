@@ -137,4 +137,10 @@ Visual Studio Code используется как удобная среда д�
 
 Приложение полностью соответствует описанию и содержит все указанные элементы управления и визуализации.
 
+<img width="805" height="629" alt="image" src="https://github.com/user-attachments/assets/d6693962-cd91-4018-bde1-8f22df7641a4" />
+<img width="186" height="464" alt="image" src="https://github.com/user-attachments/assets/6a057ec5-c45b-48ff-b035-80c1d79dcd0e" />
+<img width="125" height="26" alt="image" src="https://github.com/user-attachments/assets/2321441e-7e93-423b-97da-e5e5e2ad25d6" />
+<img width="284" height="132" alt="image" src="https://github.com/user-attachments/assets/685a83b3-29f1-49c0-9bb7-9b5e2d074e52" />
+<img width="154" height="154" alt="image" src="https://github.com/user-attachments/assets/e01cd4ac-96db-4bdb-a716-b79b652d35a8" />
+
 
