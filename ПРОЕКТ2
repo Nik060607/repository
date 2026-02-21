@@ -1,0 +1,49 @@
+import tkinter as tk
+from tkinter import ttk
+class MonitoringApp(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        
+        # Настройка окна
+        self.title("Мониторинг температуры и влажности")
+        self.geometry("800x600")
+        
+        # Создание вкладок
+        tab_control = ttk.Notebook(self)
+        main_tab = ttk.Frame(tab_control)
+        settings_tab = ttk.Frame(tab_control)
+        
+        tab_control.add(main_tab, text="Главная")
+        tab_control.add(settings_tab, text="Настройки")
+        tab_control.pack(expand=1, fill='both')
+    
+        # Основные метрики на главной странице
+        temp_label = ttk.Label(main_tab, text="Температура:", font=('Arial', 18))
+        temp_value = ttk.Label(main_tab, text="22°C", font=('Arial', 18))  # Данные будут обновляться динамически
+        humid_label = ttk.Label(main_tab, text="Влажность:", font=('Arial', 18))
+        humid_value = ttk.Label(main_tab, text="55%", font=('Arial', 18))  # Данные будут обновляться динамически
+        
+        temp_label.grid(row=0, column=0, padx=(10, 10), pady=(10, 10))
+        temp_value.grid(row=0, column=1, padx=(10, 10), pady=(10, 10))
+        humid_label.grid(row=1, column=0, padx=(10, 10), pady=(10, 10))
+        humid_value.grid(row=1, column=1, padx=(10, 10), pady=(10, 10))
+    
+        # Элементы настройки
+        ip_entry = ttk.Entry(settings_tab)
+        port_entry = ttk.Entry(settings_tab)
+        connect_button = ttk.Button(settings_tab, text="Подключиться", command=self.connect_to_device)
+        
+        ip_entry.insert(0, 'IP адрес устройства')
+        port_entry.insert(0, 'Порт')
+        
+        ip_entry.grid(row=0, column=0, padx=(10, 10), pady=(10, 10))
+        port_entry.grid(row=1, column=0, padx=(10, 10), pady=(10, 10))
+        connect_button.grid(row=2, column=0, padx=(10, 10), pady=(10, 10))
+    
+    def connect_to_device(self):
+        print("Подключение...")
+        pass  # Логика соединения здесь
+
+if __name__ == "__main__":
+    app = MonitoringApp()
+    app.mainloop()
